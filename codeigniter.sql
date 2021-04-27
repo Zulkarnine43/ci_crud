@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2021 at 08:42 AM
+-- Generation Time: Apr 27, 2021 at 06:46 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -55,15 +55,16 @@ CREATE TABLE `product_add` (
   `product_categorie` varchar(10) NOT NULL,
   `description` varchar(100) NOT NULL,
   `unit_in_stock` varchar(15) NOT NULL,
-  `image` varchar(150) NOT NULL
+  `image` varchar(150) NOT NULL,
+  `price` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_add`
 --
 
-INSERT INTO `product_add` (`id`, `product_name`, `product_categorie`, `description`, `unit_in_stock`, `image`) VALUES
-(8, 'apple', '1', 'check', '5 kg', 'image/1.jpg');
+INSERT INTO `product_add` (`id`, `product_name`, `product_categorie`, `description`, `unit_in_stock`, `image`, `price`) VALUES
+(8, 'apple', '1', 'check', '5 kg', 'image/1.jpg', 150);
 
 -- --------------------------------------------------------
 
@@ -81,11 +82,7 @@ CREATE TABLE `subscribe` (
 --
 
 INSERT INTO `subscribe` (`id`, `email`) VALUES
-(1, 'zns601@gmail.com'),
-(2, 'zulkarnine43@gmail.com'),
-(3, 'zulkarnine43@gmail.com'),
-(4, 'zulkarnine43@gmail.com'),
-(5, 'zulkarnine43@gmail.com');
+(3, 'zulkarnine43@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -123,7 +120,7 @@ ALTER TABLE `admin_register`
 -- AUTO_INCREMENT for table `product_add`
 --
 ALTER TABLE `product_add`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `subscribe`

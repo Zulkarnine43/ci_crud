@@ -22,7 +22,8 @@ class product_controller extends CI_Controller {
         'product_name'=>$this->input->post('product_name'),
         'product_categorie'=>$this->input->post('product_categorie'),
         'description'=>$this->input->post('description'),
-        'unit_in_stock'=>$this->input->post('unit_in_stock')
+        'unit_in_stock'=>$this->input->post('unit_in_stock'),
+        'price'=>$this->input->post('price')
 		);
                 $sdata=array();
                 $error="";
@@ -122,4 +123,58 @@ class product_controller extends CI_Controller {
                 echo "successfully deleted";
 			}
 
+      public function add_cart(){
+
+               $id=$this->input->post('id');
+               $this->db->where('id', $id);
+               $this->db->FROM('product_add');
+               $result_db=$this->db->get();
+
+
+foreach ($result_db->result_array() as $key) {
+                
+          $data = array(
+            'id' => $key['id'], 
+            'name' => $key['product_name'], 
+            'qty' => $this->input->post('qty'),
+            'price' =>$key['price'],  
+        );
+
+        $this->load->library('cart');
+        $this->cart->insert($data);
+
+    }
+        redirect('/view_cart');
+    }
+
+    public function view_cart()
+    {
+        $this->load->view('product/view_cart');
+    }  
+
+
+    public function update_cart($rowid)
+    {  
+       $this->load->library('cart');
+
+
+            $data = array(
+                    'rowid' => $rowid,
+                    'qty'   => 1
+            );
+
+            $this->cart->update($data);
+
+        redirect('/view_cart');
+    }   
+
+    public function cancel_cart($rowid)
+    {  
+       $this->load->library('cart');
+    $this->cart->remove($rowid);
+
+     redirect('/view_cart');
+    }  
+     
+    
 }

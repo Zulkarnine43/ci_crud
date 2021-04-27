@@ -50,6 +50,11 @@
                   	<input type="file" name="image" class="form-control">
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <input type="number" class="form-control form-control-user" name="price" placeholder="Price" min="1">
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-user btn-block">
                   Submit
                 </button>

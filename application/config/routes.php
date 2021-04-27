@@ -23,7 +23,10 @@ $route['update_product/(.+)'] = 'product_controller/update_product/$1';
 
 $route['delete_product/(.+)'] = 'product_controller/delete_product/$1';
 
-
+$route['add_cart'] = 'product_controller/add_cart';
+$route['view_cart'] = 'product_controller/view_cart';
+$route['cancel_cart/(.+)'] = 'product_controller/cancel_cart/$1';
+$route['update_cart/(.+)'] = 'product_controller/update_cart/$1';
 
 
 $route['data_save'] = 'welcome/data_save';

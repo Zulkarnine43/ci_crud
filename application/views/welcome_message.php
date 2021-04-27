@@ -93,8 +93,15 @@
                                 <div class="item-desc">
                                     <h3 class="item-name"><?php echo $row['product_name'] ?></h3>
                                     <p>Item No: <?php echo $row['product_categorie'] ?></p>
-                                    <p>Stock: <?php echo $row['unit_in_stock'] ?></p>
                                     <p>Description: <?php echo $row['description'] ?></p>
+                                    <p>Price: <?php echo $row['price'] ?></p>
+                                </div>
+                                <div class="card-footer">
+                                    <form method="POST" action="<?php echo base_url() ?>add_cart">
+                                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                    <input type="number" name="qty" value="1" min="1">
+                                    <input type="submit" value="add to cart">
+                                    </form>
                                 </div>
                             </div>
                         </div>
